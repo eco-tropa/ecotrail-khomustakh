@@ -212,7 +212,7 @@ const detail = document.querySelector("#animalDetail .detail-copy");
 detail.insertAdjacentHTML("afterbegin", `
     <div class="fox-found-message">
      🎉 Ты нашёл это животное!
-     <p>Поздравляем! Лиса открыта в твоём эко-путешествии.</p>
+     <p>Поздравляем! Лягушка открыта в твоём эко-путешествии.</p>
     </div>
     `);
 }
