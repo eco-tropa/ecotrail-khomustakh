@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f32">
+  <title>Достопримечательности Намского наслега</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="brandHome" aria-label="На главную"><span class="brand-mark">🌿</span><span>Эко-путеводитель<br><small>Хомустах</small></span></a>
+    <button class="menu-button" id="homeButton" type="button">Главная</button>
+  </header>
+
+  <main>
+    <section class="screen active" id="welcomeScreen">
+      <div class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="public/videos/VID-20261027-WA0053.mp4" type="video/mp4">
+        </video>
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">ПРИРОДА · ИСТОРИЯ · КУЛЬТУРА</p>
+          <h1>Достопримечательности<br><em>Намского наслега</em></h1>
+          <p class="hero-copy">Добро пожаловать в Намский наслег!
+            Наш мультимедийный путеводитель приглашает вас в уникальное интерактивное путешествие по сердцу Верхневилюйского улуса - селу Хомустах. Это место, где переплетаются великая история, самобытная культура и первозданная природа родного края.</p>
+          <button class="primary-button" id="startButton" type="button">Начать путешествие <span>→</span></button>
+        </div>
+        <div class="hero-note">Узнавай · Слушай · Исследуй</div>
+      </div>
+      <p class="welcome-foot">Открывай историю родного края и береги его природу.</p>
+    </section>
+
+    <!-- Экран с четырьмя памятными местами -->
+    <section class="screen" id="placesScreen">
+      <div class="section-heading">
+        <p class="eyebrow">ИСТОРИЯ И ПАМЯТЬ РОДНОГО КРАЯ</p>
+        <h2>Памятные <em>места</em></h2>
+        <p>Выбери место, чтобы познакомиться с ним поближе.</p>
+      </div>
+      <div class="places-grid">
+        <button class="place-card" type="button" data-place="victory">
+          <img src="public/images/victory-square.jpg" alt="Памятная стела на площади Победы">
+          <span class="place-card-copy"><strong>Памятник воинам-землякам, погибшим в годы Великой Отечественной войны в 1941-1945 гг.</strong><small>Открыть историю →</small></span>
+        </button>
+        <button class="place-card" type="button" data-place="memorial">
+          <img src="public/images/central-memorial.jpg" alt="Центральный мемориал">
+          <span class="place-card-copy"><strong>Центральный мемориальный комплекс воинам-землякам и труженикам тыла Намского наслега (с. Хомустах).</strong><small>Открыть историю →</small></span>
+        </button>
+        <button class="place-card" type="button" data-place="trail">
+          <img src="public/images/ulluk.jpg" alt="Пётр Тобуруоков">
+          <span class="place-card-copy"><strong>Эко-тропа П.Н. Тобурокова</strong><small>Перейти к тропе и животным →</small></span>
+        </button>
+        <button class="place-card" type="button" data-place="barakhov">
+          <img src="public/images/barakhov-square.jpg" alt="Памятник в сквере Барахова">
+          <span class="place-card-copy"><strong>Сквер имени Исидора Никифоровича Барахова в с. Хомустах</strong><small>Открыть историю →</small></span>
+        </button>
+        <button class="place-card" type="button" data-place="poetHouse">
+          <img src="public/images/hause.jpg" alt="Памятник П. Н. Тобурокову">
+          <span class="place-card-copy"><strong>Дом усадьба и музей поэта П. Н. Тобурокова</strong><small>Открыть историю →</small></span>
+        </button>
+      </div>
+      <div class="quiz-invite">
+        <div>
+          <span class="mini-label">ПРОВЕРЬ СВОИ ЗНАНИЯ</span>
+          <h3>📝 Интерактивная викторина</h3>
+          <p>Ответь на 10 вопросов о природе, истории и памятных местах Намского наслега. В конце получишь именной сертификат!</p>
+        </div>
+        <button class="primary-button" type="button" onclick="openQuiz()">Пройти викторину <span>→</span></button>
+      </div>
+    </section>
+
+    <!-- Викторина и именной сертификат -->
+    <section class="screen quiz-screen" id="quizScreen">
+      <button class="back-link" type="button" onclick="closeQuiz()">← К памятным местам</button>
+      <div class="quiz-panel" id="quizIntro">
+        <p class="eyebrow">ПРИРОДА · ИСТОРИЯ · КУЛЬТУРА</p>
+        <h2>Интерактивная викторина</h2>
+        <p>Впереди 10 вопросов о тропе Хомустаха и памятных местах Намского наслега. Выбери один правильный ответ в каждом вопросе.</p>
+        <label for="quizName">Как тебя зовут?</label>
+        <input id="quizName" type="text" maxlength="60" autocomplete="name" placeholder="Введи своё имя">
+        <button class="primary-button" id="quizStartButton" type="button">Начать викторину →</button>
+      </div>
+      <div class="quiz-panel" id="quizQuestionPanel" hidden>
+        <div class="quiz-topline"><span id="quizProgressText">Вопрос 1 из 10</span><span id="quizScoreText">Верных ответов: 0</span></div>
+        <div class="quiz-progress"><div id="quizProgressFill"></div></div>
+        <p class="eyebrow">ВОПРОС ВИКТОРИНЫ</p>
+        <h2 id="quizQuestionText"></h2>
+        <div class="quiz-answers" id="quizAnswers"></div>
+        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+        <button class="primary-button" id="quizNextButton" type="button" disabled>Следующий вопрос →</button>
+      </div>
+      <div class="quiz-panel certificate" id="quizCertificate" hidden>
+        <div class="certificate-inner">
+          <p class="eyebrow">НАМСКИЙ НАСЛЕГ · СЕЛО ХОМУСТАХ</p>
+          <p class="eyebrow">МБОУ Намская СОШ им. П.Н. Тобурокова</p>
+          <h2>Сертификат о прохождении интерактивной викторины</h2>
+          <p>Настоящий сертификат выдан</p>
+          <h3 id="certificateName"></h3>
+          <p>за участие в интерактивной викторине и знакомство с природой и историей родного края.</p>
+          <div class="certificate-score"><span>Результат</span><strong id="certificateScore">0 из 10</strong></div>
+          <p class="certificate-date" id="certificateDate"></p>
+          <p class="certificate-sign">Эко-путешествие по тропе Хомустаха</p>
+          <p class="certificate-sign">Автор проекта: Романова Анжелика</p>
+        </div>
+        <div class="certificate-actions">
+          <button class="primary-button" type="button" onclick="window.print()">🖨 Распечатать / сохранить PDF</button>
+          <button class="action-button" type="button" onclick="restartQuiz()">Пройти ещё раз</button>
+          <button class="action-button" type="button" onclick="closeQuiz()">К памятным местам</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Страницы отдельных памятных мест -->
+    <section class="screen place-detail-screen" id="placeDetailScreen">
+      <button class="back-link" id="backToPlaces" type="button">← К памятным местам</button>
+      <div id="placeDetail"></div>
+    </section>
+
+    <!-- Животные перенесены внутрь раздела эко-тропы -->
+    <section class="screen" id="trailScreen">
+      <button class="back-link" id="backToPlacesFromTrail" type="button">← К памятным местам</button>
+      <div class="section-heading">
+        <p class="eyebrow">ПРИРОДА · ТВОРЧЕСТВО · ИССЛЕДОВАНИЕ</p>
+        <h2>Эко-тропа <em>Тобурокова</em></h2>
+        <p>Познакомься с деревянными животными, узнай интересные факты и отправляйся исследовать тропу.</p>
+      </div>
+      <div class="poet-intro">
+        <img src="public/images/petr%20(1).jpg" alt="Пётр Тобуруоков">
+        <div><span class="mini-label">ИМЯ, СВЯЗАННОЕ С ТРОПОЙ...</span><h3>Пётр Тобуроков</h3><p>Особенность экологической тропы заключается в синтезе слова и пластического искусства. Мастер Алексей Федосеев, член Союза художников России, смог перевести метафоры и образы из детских и анималистических стихотворений П. Н. Тобурокова на язык объёмной деревянной скульптуры. Каждая фигура на тропе — это не просто лесной зверь, это конкретный персонаж со своим характером, сошедший со страниц книг народного поэта. Благодаря этому тропа превращается в открытую книгу, которую посетитель "читает" во время прогулки. Текстура дерева, естественные изгибы ветвей и глубинная связь якутского мастера с природой подчёркивают бережное отношение самого поэта к родному краю».</p></div>
+      </div>
+      <div class="trail-line"><span>ЗНАКОМСТВО С ТРОПОЙ</span><span class="line"></span><span>ЛЕСНЫЕ ВСТРЕЧИ</span></div>
+      <div class="animal-grid" id="animalGrid"></div>
+      <!-- Мини-квест: найди деревянную лису -->
+<div class="animal-quest" id="animalQuest">
+<p class="mini-label">МИНИ-КВЕСТ ЭКО-ТРОПЫ</p>
+<h3>🔎 Найди деревянных животных!</h3>
+<p>Найди скульптуру лисы на тропе и отсканируй QR-код рядом с ней.</p>
+
+<div class="quest-progress">
+<div class="quest-progress-top">
+<strong>Твои находки</strong>
+<span id="foxQuestStatus">0 из 1</span>
+</div>
+<div class="quest-progress-track">
+<div id="foxQuestFill"></div>
+</div>
+</div>
+
+<div class="quest-hidden-card" id="foxQuestCard">
+<div id="foxQuestLocked">
+<span class="quest-lock">🔒</span>
+<h4>Неизвестное животное</h4>
+<p>Секретная карточка откроется после сканирования QR-кода на тропе.</p>
+</div>
+
+<div id="foxQuestRevealed" hidden>
+<img src="public/images/IMG-20261027-WA0113.jpg" alt="Деревянная лиса">
+<h4>🦊 Лиса — Саһыл</h4>
+<p>Ты нашёл это животное!</p>
+<button class="action-button" id="openFoxQuestCard" type="button">
+Открыть карточку животного →
+</button>
+</div>
+</div>
+</div>
+      <div class="trail-video-entry">
+        <p>Хочешь увидеть тропу целиком?</p>
+        <button class="primary-button" type="button" onclick="openTrailVideo()">🎬 Видео тропы Хомустаха</button>
+      </div>
+      <div class="tip"><span>💡</span><p><strong>Совет юному экологу</strong><br>Наблюдай за природой бережно: не шуми, не оставляй мусор и не тревожь животных.</p></div>
+    </section>
+
+    <section class="screen" id="animalScreen">
+      <button class="back-link" id="backToTrail" type="button">← К эко-тропе</button>
+      <div class="animal-detail" id="animalDetail"></div>
+    </section>
+
+    <section class="screen video-screen" id="trailVideoScreen">
+      <h2>🎬 Видео тропы Хомустаха</h2>
+      <div class="video-container"><video id="trailVideo" controls playsinline preload="metadata" width="900" height="506"><source src="public/videos/tropa.mp4" type="video/mp4">Твой браузер не поддерживает видео.</video></div>
+      <button type="button" onclick="closeTrailVideo()">← Вернуться к эко-тропе</button>
+    </section>
+
+    <section class="screen gallery-screen" id="animalGalleryScreen">
+      <button class="back-link" id="backToTrailFromGallery" type="button">← К эко-тропе</button>
+      <div class="section-heading">
+        <p class="eyebrow">ЭКО-ТРОПА ХОМУСТАХА</p>
+        <h2>Другие деревянные <em>скульптуры</em></h2>
+        <p>Фотографии деревянных фигурок, которые можно встретить на тропе.</p>
+      </div>
+      <div class="sculpture-gallery" id="sculptureGallery"></div>
+    </section>
+  </main>
+
+  <footer><span>🌱 Эко-путешествие по тропе Хомустаха</span><span>Создано для юных исследователей</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

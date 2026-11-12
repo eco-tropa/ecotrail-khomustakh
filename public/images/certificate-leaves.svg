@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+<defs>
+<style>
+.bg { fill: #FAF8F5; }
+.border-outer { fill: none; stroke: #4A5D4E; stroke-width: 2; }
+.border-inner { fill: none; stroke: #4A5D4E; stroke-width: 1; opacity: 0.7; }
+.leaf-green { fill: #6B856E; }
+.leaf-dark { fill: #4A5D4E; }
+.leaf-light { fill: #8DA28F; }
+.stem { fill: none; stroke: #4A5D4E; stroke-width: 1.5; stroke-linecap: round; }
+</style>
+</defs>
+
+<!-- Фон сертификата -->
+<rect width="1000" height="700" class="bg" />
+
+<!-- Двойная внешняя рамка -->
+<rect x="30" y="30" width="940" height="640" class="border-outer" />
+<rect x="38" y="38" width="924" height="624" class="border-inner" />
+
+<!-- Внутренняя тонкая рамка -->
+<rect x="55" y="55" width="890" height="590" fill="none" stroke="#4A5D4E" stroke-width="0.75" opacity="0.4" />
+
+<!-- Угловые веточки: Верхний левый угол -->
+<g transform="translate(55, 55)">
+<path d="M 0,40 Q 40,40 60,0" class="stem" />
+<path d="M 15,60 Q 50,60 80,20" class="stem" />
+<path d="M 30,80 Q 70,70 100,40" class="stem" />
+<path d="M 5,20 Q 20,20 30,5" class="stem" />
+<path d="M 10,35 Q 25,25 30,10 Q 15,20 10,35 Z" class="leaf-green" />
+<path d="M 30,50 Q 45,35 55,20 Q 35,35 30,50 Z" class="leaf-dark" />
+<path d="M 50,65 Q 65,50 75,35 Q 55,50 50,65 Z" class="leaf-light" />
+<path d="M 20,15 Q 30,10 35,2 Q 25,5 20,15 Z" class="leaf-light" />
+<circle cx="65" cy="15" r="3" class="leaf-green" />
+<circle cx="85" cy="35" r="2.5" class="leaf-dark" />
+<circle cx="45" cy="5" r="2" class="leaf-green" />
+</g>
+
+<!-- Угловые веточки: Верхний правый угол -->
+<g transform="translate(945, 55) scale(-1, 1)">
+<path d="M 0,40 Q 40,40 60,0" class="stem" />
+<path d="M 15,60 Q 50,60 80,20" class="stem" />
+<path d="M 30,80 Q 70,70 100,40" class="stem" />
+<path d="M 5,20 Q 20,20 30,5" class="stem" />
+<path d="M 10,35 Q 25,25 30,10 Q 15,20 10,35 Z" class="leaf-green" />
+<path d="M 30,50 Q 45,35 55,20 Q 35,35 30,50 Z" class="leaf-dark" />
+<path d="M 50,65 Q 65,50 75,35 Q 55,50 50,65 Z" class="leaf-light" />
+<path d="M 20,15 Q 30,10 35,2 Q 25,5 20,15 Z" class="leaf-light" />
+<circle cx="65" cy="15" r="3" class="leaf-green" />
+<circle cx="85" cy="35" r="2.5" class="leaf-dark" />
+<circle cx="45" cy="5" r="2" class="leaf-green" />
+</g>
+
+<!-- Угловые веточки: Нижний левый угол -->
+<g transform="translate(55, 645) scale(1, -1)">
+<path d="M 0,40 Q 40,40 60,0" class="stem" />
+<path d="M 15,60 Q 50,60 80,20" class="stem" />
+<path d="M 30,80 Q 70,70 100,40" class="stem" />
+<path d="M 5,20 Q 20,20 30,5" class="stem" />
+<path d="M 10,35 Q 25,25 30,10 Q 15,20 10,35 Z" class="leaf-green" />
+<path d="M 30,50 Q 45,35 55,20 Q 35,35 30,50 Z" class="leaf-dark" />
+<path d="M 50,65 Q 65,50 75,35 Q 55,50 50,65 Z" class="leaf-light" />
+<path d="M 20,15 Q 30,10 35,2 Q 25,5 20,15 Z" class="leaf-light" />
+<circle cx="65" cy="15" r="3" class="leaf-green" />
+<circle cx="85" cy="35" r="2.5" class="leaf-dark" />
+<circle cx="45" cy="5" r="2" class="leaf-green" />
+</g>
+
+<!-- Угловые веточки: Нижний правый угол -->
+<g transform="translate(945, 645) scale(-1, -1)">
+<path d="M 0,40 Q 40,40 60,0" class="stem" />
+<path d="M 15,60 Q 50,60 80,20" class="stem" />
+<path d="M 30,80 Q 70,70 100,40" class="stem" />
+<path d="M 5,20 Q 20,20 30,5" class="stem" />
+<path d="M 10,35 Q 25,25 30,10 Q 15,20 10,35 Z" class="leaf-green" />
+<path d="M 30,50 Q 45,35 55,20 Q 35,35 30,50 Z" class="leaf-dark" />
+<path d="M 50,65 Q 65,50 75,35 Q 55,50 50,65 Z" class="leaf-light" />
+<path d="M 20,15 Q 30,10 35,2 Q 25,5 20,15 Z" class="leaf-light" />
+<circle cx="65" cy="15" r="3" class="leaf-green" />
+<circle cx="85" cy="35" r="2.5" class="leaf-dark" />
+<circle cx="45" cy="5" r="2" class="leaf-green" />
+</g>
+
+<!-- Верхний центральный декоративный элемент -->
+<g transform="translate(500, 85)">
+<path d="M -40,0 Q -20,-8 0,0 Q 20,-8 40,0" fill="none" stroke="#4A5D4E" stroke-width="1.5" />
+<circle cx="0" cy="-3" r="2" class="leaf-dark" />
+<path d="M -80,12 L 80,12" stroke="#4A5D4E" stroke-width="0.75" opacity="0.6" />
+</g>
+
+</svg>
