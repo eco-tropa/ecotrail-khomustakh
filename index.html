@@ -16,9 +16,11 @@
   <main>
     <section class="screen active" id="welcomeScreen">
       <div class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="public/videos/VID-20261027-WA0053.mp4" type="video/mp4">
-        </video>
+        <img
+        class="hero-video"
+        src="public/images/nam.jpg"
+        alt="Природа намского наслега"
+        >
         <div class="hero-shade"></div>
         <div class="hero-content">
           <p class="eyebrow">ПРИРОДА · ИСТОРИЯ · КУЛЬТУРА</p>
@@ -26,10 +28,26 @@
           <p class="hero-copy">Добро пожаловать в Намский наслег!
             Наш мультимедийный путеводитель приглашает вас в уникальное интерактивное путешествие по сердцу Верхневилюйского улуса - селу Хомустах. Это место, где переплетаются великая история, самобытная культура и первозданная природа родного края.</p>
           <button class="primary-button" id="startButton" type="button">Начать путешествие <span>→</span></button>
+          <button class="expert-review-button" id="expertReviewButton" type="button" onclick="openExpertReview()">Экспертная оценка проекта
+            <span>-</span>
+          </button>
         </div>
         <div class="hero-note">Узнавай · Слушай · Исследуй</div>
       </div>
       <p class="welcome-foot">Открывай историю родного края и береги его природу.</p>
+    </section>
+
+    <!-- Экран экспертной оценки проекта -->
+    <section class="screen expert-review-screen" id="expertReviewScreen">
+      <button class="back-link" id="backFromExpertReview" type="button">← На главную</button>
+      <div class="section-heading">
+        <p class="eyebrow">ОЦЕНКА И ОБРАТНАЯ СВЯЗЬ</p>
+        <h2>Экспертная <em>оценка проекта</em></h2>
+        <p>Отзыв эксперта о нашем интерактивном путеводителе.</p>
+      </div>
+      <div class="expert-review-content">
+        <img src="public/images/otzuv.jpg" alt="Отзыв эксперта о проекте">
+      </div>
     </section>
 
     <!-- Экран с четырьмя памятными местами -->
@@ -132,11 +150,47 @@
       </div>
       <div class="trail-line"><span>ЗНАКОМСТВО С ТРОПОЙ</span><span class="line"></span><span>ЛЕСНЫЕ ВСТРЕЧИ</span></div>
       <div class="animal-grid" id="animalGrid"></div>
+<div class="sculptor-note">
+<h3>🌿 Отзыв от создателя деревянных скульптур</h3>
+
+<img src="public/images/autor.jpg"
+alt="Алексей Федосеев — художник-скульптор">
+
+<div class="sculptor-note-content">
+<h4>Алексей Федосеев</h4>
+<p class="sculptor-role">
+Художник-скульптор
+</p>
+
+<blockquote class="sculptor-quote">
+Анжелика улэтин көрдүм уонна олус сөбүлээтим.
+Кылгастык киһиэхэ өйдөнүмтүө гына, сөпкө оҕо хараҕынан бэркэ суруйбут.
+Саха норуотун Уһулуччулаах поэта эһиги биир дойдулааххыт
+Бүөтүр Тобуруокап аатын үйэтитэ, кини сүдү талаанын,
+чаҕылхай олоҕун дьоҥҥо сэргэҕэ кэпсии, көрдөрө сылдьаргыт
+хайҕаллаах суол диэн этэбин.
+Сайт, мобильнай сыһыарыы билиҥҥи кэм ирдэбилэ буоллаҕа дии,
+онон олус сөпкө баран иһэҕит.
+Төрөөбүт дойдугутун таптаан, тулалыыр дьоҥҥутун өрө тутан,
+тэбис тэҥҥэ хардыылаан айан-тутан иннигит диэки баран иһиҥ.
+Анжелика маладьыас, эйиэхэ үөрэххэр ситиһиилэри,
+туйгун доруобуйаны баҕарабын.
+</blockquote>
+
+<p class="sculptor-signature">
+Эҕэрдэни кытта,<br>
+Алексей Федосеев<br>
+Худуоһунньук-скульптор<br>
+13 сэтинньи 2026 с.
+</p>
+</div>
+</div>
+
       <!-- Мини-квест: найди деревянную лису -->
 <div class="animal-quest" id="animalQuest">
 <p class="mini-label">МИНИ-КВЕСТ ЭКО-ТРОПЫ</p>
 <h3>🔎 Найди деревянных животных!</h3>
-<p>Найди скульптуру на тропе и отсканируй QR-код рядом с ней.</p>
+<p>Найди скульптуру лисы на тропе и отсканируй QR-код рядом с ней.</p>
 
 <div class="quest-progress">
 <div class="quest-progress-top">
@@ -157,7 +211,7 @@
 
 <div id="foxQuestRevealed" hidden>
 <img src="public/images/IMG-20261027-WA0113.jpg" alt="Деревянная лиса">
-<h4> Баҕа </h4>
+<h4> Ба5а </h4>
 <p>Ты нашёл это животное!</p>
 <button class="action-button" id="openFoxQuestCard" type="button">
 Открыть карточку животного →
@@ -180,6 +234,9 @@
     <section class="screen video-screen" id="trailVideoScreen">
       <h2>🎬 Видео тропы Хомустаха</h2>
       <div class="video-container"><video id="trailVideo" controls playsinline preload="metadata" width="900" height="506"><source src="public/videos/tropa.mp4" type="video/mp4">Твой браузер не поддерживает видео.</video></div>
+      <p class="video-caption">
+🎵 Песню исполняет народная артистка СССР Анегина Ильина.
+</p>
       <button type="button" onclick="closeTrailVideo()">← Вернуться к эко-тропе</button>
     </section>
 

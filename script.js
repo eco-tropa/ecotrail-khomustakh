@@ -29,7 +29,16 @@ const places = {
 В Намском наслеге долгие годы жил и творил народный поэт Якутии, участник Сталинградской битвы Пётр Николаевич Тобуроков (Бүөтүр Тобуруокап). Сегодня в состав его усадьбы входят одноэтажный дом-музей с личными вещами, двухэтажная библиотека (подарок земляков к 80-летию поэта в 1997 году) и бюст работы скульптора С.К. Прокопьева, открытый в 2007 году. Каждый год здесь проходят Дни поэзии «Тобуруокап көмүс күһүнэ», а для гостей проводят экскурсии «По тропам поэта» до местности`,extraImage:"public/images/hause.jpg"}
 };
 
-const screens = ["welcomeScreen","placesScreen","placeDetailScreen","trailScreen","animalScreen","animalGalleryScreen","trailVideoScreen","quizScreen"];
+const screens = [
+  "welcomeScreen",
+  "placesScreen",
+  "placeDetailScreen",
+  "trailScreen",
+  "animalScreen",
+  "animalGalleryScreen",
+  "trailVideoScreen",
+  "quizScreen",
+  "expertReviewScreen"];
 let currentAnimal = 0;
 let toastTimer;
 
@@ -63,6 +72,8 @@ function openPlace(id) {
       <h2>${place.title}</h2>
       <p>${place.text}</p>
       ${id === "victory" ? `
+<div class="victory-people">
+
 <div class="place-audio">
 <h3>🎧 Голос живой истории</h3>
 
@@ -76,6 +87,14 @@ function openPlace(id) {
 народный мастер Республики Саха (Якутия)
 Василий Иванович Спиридонов.
 </p>
+</div>
+
+<div class="history-person">
+<img src="public/images/son.jpg"
+alt="Спиридонов Василий Иванович">
+<p>Спиридонов Василий Иванович</p>
+</div>
+
 </div>
 ` : ""}
       ${id === "memorial" ? `
@@ -407,3 +426,12 @@ document.getElementById("quizName").addEventListener("keydown", event => {
   if (event.key === "Enter") startQuiz();
 });
 
+//Открыть экран экспертной оценки
+function openExpertReview(){
+  showScreen("expertReviewScreen");
+}
+
+//Вернуться на главную страницу
+function closeExpertReview(){
+  showScreen("welcomeScreen");
+}
